@@ -84,7 +84,7 @@ namespace my_agenda
                 cmd = new SQLiteCommand(query, cn);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    cn.Close();
+                    cn.Open();
                     return true;
                 }
             }
@@ -96,7 +96,7 @@ namespace my_agenda
             {
                 if (cn != null && cn.State == ConnectionState.Open)
                 {
-                    cn.Close();
+                    cn.Open();
                 }
             }
             return false;
